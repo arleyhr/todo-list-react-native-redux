@@ -7,16 +7,15 @@ import Home from '../screens/Home'
 
 import routerKeys from './keys'
 
+import styles from './styles'
+
 const { MAIN_TABS, LOGIN_SCREEN, HOME_SCREEN } = routerKeys
 
 class Navigation extends Component {
-  componentDidMount() {
-    // const { isAuthenticated } = this.props
-    // Actions[isAuthenticated ? MAIN_TABS_SCREEN : LOGIN_SCREEN].call()
-  }
+  componentDidMount() {}
   render() {
     return (
-      <Router>
+      <Router sceneStyle={styles.scene}>
         <Lightbox>
           <Modal>
             {/* MODALS */}
