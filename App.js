@@ -1,15 +1,21 @@
 // @flow
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
+import EStyleSheet from 'react-native-extended-stylesheet'
 
-const styles = StyleSheet.create({
+import theme from './src/theme'
+
+EStyleSheet.build(theme)
+
+const styles = EStyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '$colors.mainBlue',
   },
   welcome: {
+    color: '$colors.white',
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
