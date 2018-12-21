@@ -8,6 +8,7 @@
   "extends": ["airbnb", "plugin:react-native/all"],
   "rules": {
     "import/prefer-default-export": "off",
+    "react/forbid-prop-types": "off",
     "no-var": "error",
     "prefer-arrow-callback": "error",
     "semi": [

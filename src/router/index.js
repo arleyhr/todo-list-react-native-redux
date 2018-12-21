@@ -5,6 +5,8 @@ import { Scene, Router, Modal, Tabs, Lightbox, ActionConst } from 'react-native-
 import Login from '../screens/Login'
 import Home from '../screens/Home'
 
+import CircleButton from '../components/circle-button'
+
 import routerKeys from './keys'
 
 import styles from './styles'
@@ -20,7 +22,12 @@ const {
 } = routerKeys
 
 class Navigation extends Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props)
+
+    this.onAddButtonPress = this.onAddButtonPress.bind(this)
+  }
+  onAddButtonPress() {}
   render() {
     return (
       <Router sceneStyle={styles.scene}>
@@ -51,7 +58,15 @@ class Navigation extends Component {
                 <Scene
                   key={ADD_SCREEN}
                   component={Home}
-                  icon={({ tintColor }) => <Icon name="clock" size={24} color={tintColor} />}
+                  tabBarOnPress={() => null}
+                  icon={() => (
+                    <CircleButton
+                      elevation
+                      customStyles={styles.addButton}
+                      iconName="plus"
+                      onPress={this.onAddButtonPress}
+                    />
+                  )}
                 />
                 <Scene
                   key={NOTIFICATIONS_SCREEN}

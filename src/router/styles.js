@@ -11,4 +11,7 @@ export default EStyleSheet.create({
     borderTopWidth: 0,
     height: 60,
   },
+  addButton: {
+    marginTop: -40,
+  },
 })
