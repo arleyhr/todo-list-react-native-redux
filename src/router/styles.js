@@ -14,4 +14,14 @@ export default EStyleSheet.create({
   addButton: {
     marginTop: -40,
   },
+  navigationBarStyle: {
+    backgroundColor: '$colors.paleGrey',
+    borderBottomWidth: 0,
+  },
+  navigationBarTitleImageStyle: {
+    width: 35,
+    height: 35,
+    resizeMode: 'cover',
+    alignSelf: 'center',
+  },
 })

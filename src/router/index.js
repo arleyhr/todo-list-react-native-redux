@@ -6,7 +6,7 @@ import Login from '../screens/Login'
 import Home from '../screens/Home'
 
 import CircleButton from '../components/circle-button'
-
+import { logo } from '../libs/images'
 import routerKeys from './keys'
 
 import styles from './styles'
@@ -44,6 +44,10 @@ class Navigation extends Component {
                 inactiveTintColor={styles.inactiveTintColor}
                 activeTintColor={styles.activeTintColor}
                 tabBarStyle={styles.tabBarStyle}
+                navigationBarStyle={styles.navigationBarStyle}
+                navigationBarTitleImage={logo}
+                navigationBarTitleImageStyle={styles.navigationBarTitleImageStyle}
+                headerLayoutPreset="center"
               >
                 <Scene
                   key={HOME_SCREEN}
