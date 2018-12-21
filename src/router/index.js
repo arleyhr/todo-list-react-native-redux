@@ -31,7 +31,13 @@ class Navigation extends Component {
             {/* // MODALS */}
 
             <Scene key={MAIN_TABS} hideNavBar type={ActionConst.REPLACE}>
-              <Tabs showLabel={false} swipeEnabled>
+              <Tabs
+                showLabel={false}
+                swipeEnabled
+                inactiveTintColor={styles.inactiveTintColor}
+                activeTintColor={styles.activeTintColor}
+                tabBarStyle={styles.tabBarStyle}
+              >
                 <Scene
                   key={HOME_SCREEN}
                   component={Home}

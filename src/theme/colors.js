@@ -22,4 +22,5 @@ export default {
   gunmetal: '#4b5a61',
   paleGrey47: '#eff5f877',
   paleGrey: '#f8fbfc',
+  paleGrey83: '#eff5f8d3',
 }
