@@ -15,6 +15,13 @@ function Login() {
       <TouchableOpacity onPress={Actions[MAIN_TABS]}>
         <Text style={styles.text}>Tabs</Text>
         <SocialLoginButton
+          iconName="email"
+          text="email"
+          primaryColor={styles.emailPrimaryColor}
+          activeColor={styles.emailActiveColor}
+          onPress={() => {}}
+        />
+        <SocialLoginButton
           iconName="facebook"
           text="facebook"
           primaryColor={styles.facebookPrimaryColor}

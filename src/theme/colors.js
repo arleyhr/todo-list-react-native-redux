@@ -23,4 +23,8 @@ export default {
   paleGrey47: '#eff5f877',
   paleGrey: '#f8fbfc',
   paleGrey83: '#eff5f8d3',
+  nasturcianFlower: '#e84118',
+  harleyDavidsonFlower: '#c23616',
+  riseNShine: '#fbc531',
+  nanohanachaGold: '#e1b12c',
 }

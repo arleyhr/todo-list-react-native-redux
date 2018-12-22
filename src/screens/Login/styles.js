@@ -9,6 +9,8 @@ export default EStyleSheet.create({
   facebookActiveColor: () => EStyleSheet.value('$colors.darkSlateBlueTwo'),
   twitterPrimaryColor: () => EStyleSheet.value('$colors.robinsEgg'),
   twitterActiveColor: () => EStyleSheet.value('$colors.darkSkyBlueTwo'),
-  googlePrimaryColor: '#ff7979',
-  googleActiveColor: '#eb4d4b',
+  googlePrimaryColor: () => EStyleSheet.value('$colors.nasturcianFlower'),
+  googleActiveColor: () => EStyleSheet.value('$colors.harleyDavidsonFlower'),
+  emailPrimaryColor: () => EStyleSheet.value('$colors.riseNShine'),
+  emailActiveColor: () => EStyleSheet.value('$colors.nanohanachaGold'),
 })
