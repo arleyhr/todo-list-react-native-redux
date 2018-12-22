@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, SafeAreaView, Image } from 'react-native'
+import { SafeAreaView, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 
 import SocialLoginButton from '../../components/social-login-button'

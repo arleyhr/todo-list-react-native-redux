@@ -8,6 +8,7 @@ const keys = [
   'ADD_SCREEN',
   'NOTIFICATIONS_SCREEN',
   'PROFILE_SCREEN',
+  'NEW_TASK_LIGHTBOX',
 ]
 
 export default arrayToKeys(keys)
