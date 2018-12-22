@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TouchableWithoutFeedback, View } from 'react-native'
@@ -22,7 +21,7 @@ function CircleButton({
         style={[
           active ? styles.buttonActive : styles.button,
           customStyles,
-          elevation ? styles.elevation : null,
+          elevation && !active ? styles.elevation : null,
         ]}
       >
         <Icon name={iconName} style={styles.icon} />

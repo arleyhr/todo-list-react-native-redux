@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TouchableWithoutFeedback, View, Text } from 'react-native'
@@ -25,7 +24,7 @@ function SocialLoginButton({
         style={[
           active ? styles.buttonActive : styles.button,
           customStyles,
-          elevation ? styles.elevation : null,
+          elevation && !active ? styles.elevation : null,
           active ? { backgroundColor: activeColor } : { backgroundColor: primaryColor },
         ]}
       >

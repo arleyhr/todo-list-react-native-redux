@@ -7,7 +7,7 @@ const baseButton = {
   alignSelf: 'center',
   borderRadius: 3,
   flexDirection: 'row',
-  marginVertical: 5,
+  marginVertical: 8,
 }
 
 export default EStyleSheet.create({
@@ -43,14 +43,14 @@ export default EStyleSheet.create({
     letterSpacing: 1,
   }),
   elevation: {
-    shadowColor: '$colors.softBlue',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 7,
+      height: 2,
     },
-    shadowOpacity: 0.43,
-    shadowRadius: 9.51,
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
 
-    elevation: 15,
+    elevation: 4,
   },
 })
