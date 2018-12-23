@@ -37,10 +37,14 @@ function ColorPicker({
   )
 }
 
+ColorPicker.defaultProps = {
+  currentColor: styles.defaultColor,
+}
+
 ColorPicker.propTypes = {
   label: PropTypes.string.isRequired,
   colors: PropTypes.array.isRequired,
-  currentColor: PropTypes.string.isRequired,
+  currentColor: PropTypes.string,
   showColorBox: PropTypes.func.isRequired,
   colorBoxVisible: PropTypes.bool.isRequired,
   selectColor: PropTypes.func.isRequired,
