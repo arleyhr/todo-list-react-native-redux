@@ -1,12 +1,13 @@
 import React from 'react'
-import { Text } from 'react-native'
 
 import LightBox from '../../components/light-box'
+import NewTaskForm from '../../components/new-task-form'
+
 
 function NewTask() {
   return (
     <LightBox>
-      <Text>Hello</Text>
+      <NewTaskForm />
     </LightBox>
   )
 }

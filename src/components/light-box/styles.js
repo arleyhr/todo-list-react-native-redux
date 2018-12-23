@@ -2,7 +2,7 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 
 export default EStyleSheet.create({
   container: {
-    backgroundColor: 'rgba(6, 26, 60, 0.6)',
+    backgroundColor: '$colors.lightbox',
     position: 'absolute',
     top: 0,
     bottom: 0,

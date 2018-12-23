@@ -1,4 +1,4 @@
-export default {
+const colors = {
   teal: '#009688',
   softBlue: '#5a95ff',
   white: '#ffffff',
@@ -13,6 +13,7 @@ export default {
   denimBlue: '#3b5798',
   darkSkyBlueTwo: '#51b2e0',
   darkSlateBlueTwo: '#283b68',
+  lightbox: 'rgba(6, 26, 60, 0.6)',
   grapefruit: '#ff5c5c',
   cornflower: '#6670ff',
   slate31: '#444d674f',
@@ -28,3 +29,10 @@ export default {
   riseNShine: '#fbc531',
   nanohanachaGold: '#e1b12c',
 }
+
+export const arrayColors = Object.keys(colors).map((item, index) => ({
+  key: index,
+  color: colors[item],
+}))
+
+export default colors
