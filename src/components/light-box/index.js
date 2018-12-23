@@ -8,7 +8,7 @@ import FadeInView from '../fade-in-view'
 
 import styles from './styles'
 
-function LightBox({ children }) {
+function LightBox({ children, noPadding }) {
   const deviceWidth = getViewportWidth()
   const deviceHeight = getViewportHeight()
 
@@ -25,13 +25,24 @@ function LightBox({ children }) {
         },
       ]}
     >
-      <FadeInView style={styles.box}>{children}</FadeInView>
+      <FadeInView style={({
+        ...styles.box,
+        ...(noPadding ? styles.noPadding : {}),
+      })}
+      >
+        {children}
+      </FadeInView>
     </View>
   )
 }
 
+LightBox.defaultProps = {
+  noPadding: false,
+}
+
 LightBox.propTypes = {
   children: PropTypes.node.isRequired,
+  noPadding: PropTypes.bool,
 }
 
 export default LightBox

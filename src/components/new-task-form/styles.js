@@ -2,6 +2,10 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 
 export default EStyleSheet.create({
   $inputsMargin: 20,
+  container: {
+    paddingHorizontal: 20,
+    paddingTop: 27,
+  },
   headContainer: {
     flexDirection: 'row',
     alignItems: 'center',

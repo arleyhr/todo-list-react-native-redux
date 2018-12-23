@@ -6,7 +6,7 @@ import NewTaskForm from '../../components/new-task-form'
 
 function NewTask() {
   return (
-    <LightBox>
+    <LightBox noPadding >
       <NewTaskForm />
     </LightBox>
   )

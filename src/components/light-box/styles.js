@@ -19,4 +19,8 @@ export default EStyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 27,
   },
+  noPadding: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+  },
 })
