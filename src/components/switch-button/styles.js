@@ -28,6 +28,7 @@ export default EStyleSheet.create({
   },
   buttonActive: {
     backgroundColor: '$colors.softBlue',
+    borderRadius: '$containerWidth / 2 / 2',
     ...baseButton,
   },
   rightButton: {
