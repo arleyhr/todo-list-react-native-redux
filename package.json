@@ -19,6 +19,7 @@
     "react-native": "0.57.8",
     "react-native-calendars": "^1.21.0",
     "react-native-extended-stylesheet": "^0.11.1",
+    "react-native-firebase": "^5.1.1",
     "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-router-flux": "^4.0.6",
     "react-native-vector-icons": "^6.1.0",

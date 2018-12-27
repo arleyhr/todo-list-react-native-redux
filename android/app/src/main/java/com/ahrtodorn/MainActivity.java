@@ -1,4 +1,4 @@
-package com.todorn;
+package com.ahrtodorn;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "todorn";
+        return "ahrtodorn";
     }
 }

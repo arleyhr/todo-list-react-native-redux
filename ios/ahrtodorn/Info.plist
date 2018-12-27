@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>todorn</string>
+	<string>ToDo</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -58,10 +58,10 @@
 		<string>Raleway-Bold.ttf</string>
 		<string>Raleway-ExtraLight.ttf</string>
 		<string>Raleway-Italic.ttf</string>
+		<string>Raleway-Light.ttf</string>
 		<string>Raleway-Regular.ttf</string>
 		<string>Raleway-SemiBold.ttf</string>
 		<string>Raleway-Thin.ttf</string>
-		<string>Raleway-Light.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>

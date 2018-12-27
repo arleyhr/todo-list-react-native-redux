@@ -45,12 +45,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.todorn",
+    package = "com.ahrtodorn",
 )
 
 android_resource(
     name = "res",
-    package = "com.todorn",
+    package = "com.ahrtodorn",
     res = "src/main/res",
 )
 
