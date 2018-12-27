@@ -1,15 +1,12 @@
 import EStyleSheet from 'react-native-extended-stylesheet'
 
 const baseButton = {
-  width: '100%',
-  height: '$buttonHeight',
   alignSelf: 'center',
   borderRadius: 3,
   flexDirection: 'row',
 }
 
 export default EStyleSheet.create({
-  $buttonHeight: 50,
   defaultPrimaryColor: () => EStyleSheet.value('$colors.softBlue'),
   defaultActiveColor: () => EStyleSheet.value('$colors.darkSlateBlue'),
   button: {

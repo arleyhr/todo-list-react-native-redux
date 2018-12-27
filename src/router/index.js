@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/Feather'
-import { Scene, Router, Modal, Tabs, Lightbox, ActionConst, Actions } from 'react-native-router-flux'
+import {
+  Scene,
+  Router,
+  Modal,
+  Tabs,
+  Lightbox,
+  ActionConst,
+  Actions,
+} from 'react-native-router-flux'
 
 import Login from '../screens/login'
 import Home from '../screens/home'
 import NewTask from '../screens/new-task'
+import TaskView from '../screens/task-view'
 
 import CircleButton from '../components/circle-button'
 import { logo } from '../libs/images'
@@ -21,6 +30,7 @@ const {
   NOTIFICATIONS_SCREEN,
   PROFILE_SCREEN,
   NEW_TASK_LIGHTBOX,
+  TASK_DETAIL,
 } = routerKeys
 
 class Navigation extends Component {
@@ -87,6 +97,7 @@ class Navigation extends Component {
 
           {/* LIGHTBOXES */}
           <Scene key={NEW_TASK_LIGHTBOX} component={NewTask} />
+          <Scene key={TASK_DETAIL} component={TaskView} />
           {/* // LIGHTBOXES */}
         </Lightbox>
       </Router>

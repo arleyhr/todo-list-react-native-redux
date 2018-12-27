@@ -15,6 +15,7 @@ const colors = {
   darkSlateBlueTwo: '#283b68',
   lightbox: 'rgba(6, 26, 60, 0.6)',
   grapefruit: '#ff5c5c',
+  chiGong: '#d63031',
   cornflower: '#6670ff',
   slate31: '#444d674f',
   greenishTeal: '#39c4a5',

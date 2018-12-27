@@ -6,15 +6,18 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './styles'
 
 function TaskItem({
-  title, done, date,
+  title, done, date, onPress,
 }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.iconContainer}>
           <Icon name="check-circle" style={[styles.checkIcon, done ? styles.doneIcon : {}]} />
         </View>
-        <Text style={[styles.textItem, done ? styles.textDone : {}]} textDecorationLine={done ? 'line-through' : 'none'}>
+        <Text
+          style={[styles.textItem, done ? styles.textDone : {}]}
+          textDecorationLine={done ? 'line-through' : 'none'}
+        >
           {title}
         </Text>
         <View style={styles.dateContainer}>
@@ -29,6 +32,7 @@ TaskItem.propTypes = {
   title: PropTypes.string.isRequired,
   done: PropTypes.bool.isRequired,
   date: PropTypes.any.isRequired,
+  onPress: PropTypes.func.isRequired,
 }
 
 export default TaskItem
