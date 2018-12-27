@@ -137,7 +137,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-firebase')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-firebase')
     implementation fileTree(dir: "libs", include: ["*.jar"])
