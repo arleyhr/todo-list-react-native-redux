@@ -9,7 +9,7 @@ import styles from './styles'
 
 import { logo } from '../../libs/images'
 
-const { MAIN_TABS } = routerKeys
+const { MAIN_TABS, LOGIN_LIGHTBOX } = routerKeys
 
 function Login() {
   return (
@@ -20,7 +20,7 @@ function Login() {
         text="email"
         primaryColor={styles.emailPrimaryColor}
         activeColor={styles.emailActiveColor}
-        onPress={Actions[MAIN_TABS]}
+        onPress={Actions[LOGIN_LIGHTBOX]}
         elevation
       />
       <SocialLoginButton

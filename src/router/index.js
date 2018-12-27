@@ -14,6 +14,7 @@ import Login from '../screens/login'
 import Home from '../screens/home'
 import NewTask from '../screens/new-task'
 import TaskView from '../screens/task-view'
+import LoginWithEmail from '../screens/login-with-email'
 
 import CircleButton from '../components/circle-button'
 import { logo } from '../libs/images'
@@ -31,6 +32,7 @@ const {
   PROFILE_SCREEN,
   NEW_TASK_LIGHTBOX,
   TASK_DETAIL,
+  LOGIN_LIGHTBOX,
 } = routerKeys
 
 class Navigation extends Component {
@@ -98,6 +100,7 @@ class Navigation extends Component {
           {/* LIGHTBOXES */}
           <Scene key={NEW_TASK_LIGHTBOX} component={NewTask} />
           <Scene key={TASK_DETAIL} component={TaskView} />
+          <Scene key={LOGIN_LIGHTBOX} component={LoginWithEmail} />
           {/* // LIGHTBOXES */}
         </Lightbox>
       </Router>
