@@ -9,7 +9,7 @@ const baseButton = {
 
 export default EStyleSheet.create({
   $buttonHeight: 50,
-  $containerWidth: '80%',
+  $containerWidth: 290,
   defaultPrimaryColor: () => EStyleSheet.value('$colors.softBlue'),
   defaultActiveColor: () => EStyleSheet.value('$colors.darkSlateBlue'),
   container: {
