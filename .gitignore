@@ -56,3 +56,4 @@ buck-out/
 *.jsbundle
 
 android/app/google-services.json
+ios/ahrtodorn/GoogleService-Info.plist
