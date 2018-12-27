@@ -15,7 +15,11 @@ export default EStyleSheet.create({
     height: 200,
     position: 'absolute',
     width: '100%',
-    top: -100,
+    top: -120,
+    borderColor: '$colors.warmGrey',
+    borderWidth: 1,
+    borderRadius: 6,
+    backgroundColor: '$colors.white',
   },
   colorButton: {
     borderColor: '$colors.warmGrey',
@@ -26,12 +30,12 @@ export default EStyleSheet.create({
     margin: 10,
   },
   colorBox: {
-    backgroundColor: '$colors.white',
-    borderRadius: 6,
-    padding: 8,
+    paddingHorizontal: 2,
+    paddingVertical: 15,
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
+    justifyContent: 'center',
   },
   color: {
     borderColor: '$colors.warmGrey',
