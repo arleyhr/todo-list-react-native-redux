@@ -15,6 +15,7 @@
     "ios": "open ios/ahrtodorn.xcworkspace"
   },
   "dependencies": {
+    "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
     "react-native": "0.57.8",
@@ -24,7 +25,13 @@
     "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-router-flux": "^4.0.6",
     "react-native-vector-icons": "^6.1.0",
-    "recompose": "^0.30.0"
+    "react-redux": "^6.0.0",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.1",
+    "redux-form": "^8.1.0",
+    "redux-immutablejs": "0.0.8",
+    "redux-saga": "^0.16.2",
+    "reduxsauce": "^1.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
@@ -51,7 +58,8 @@
     "flow-bin": "0.78.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.51.0",
-    "react-test-renderer": "16.6.3"
+    "react-test-renderer": "16.6.3",
+    "redux-devtools-extension": "^2.13.7"
   },
   "jest": {
     "preset": "react-native"
