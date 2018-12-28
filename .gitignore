@@ -57,3 +57,4 @@ buck-out/
 
 android/app/google-services.json
 ios/ahrtodorn/GoogleService-Info.plist
+ios/Pods

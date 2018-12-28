@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { SafeAreaView, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 
@@ -11,7 +12,7 @@ import withStore from './store'
 
 import { logo } from '../../libs/images'
 
-const { MAIN_TABS, LOGIN_LIGHTBOX } = routerKeys
+const { LOGIN_LIGHTBOX } = routerKeys
 
 function Login({ socialLoginWith }) {
   return (
@@ -46,11 +47,15 @@ function Login({ socialLoginWith }) {
         text="twitter"
         primaryColor={styles.twitterPrimaryColor}
         activeColor={styles.twitterActiveColor}
-        onPress={Actions[MAIN_TABS]}
+        onPress={() => {}}
         elevation
       />
     </SafeAreaView>
   )
+}
+
+Login.propTypes = {
+  socialLoginWith: PropTypes.func.isRequired,
 }
 
 export default withStore(Login)

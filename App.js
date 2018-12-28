@@ -15,7 +15,6 @@ function App() {
   const store = createStore()
 
   onAuthStateChanged((user) => {
-    console.log(user)
     if (user) {
       const { _user } = user
       store.dispatch(userActions.setAuthState(true))
