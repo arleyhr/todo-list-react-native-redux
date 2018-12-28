@@ -5,6 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 import Navigation from './src/router'
 import createStore from './src/redux/createStore'
 import { onAuthStateChanged } from './src/redux/user/service'
+import userActions from './src/redux/user/actions'
 
 import theme from './src/theme'
 
@@ -15,12 +16,14 @@ function App() {
 
   onAuthStateChanged((user) => {
     console.log(user)
-    // store.dispatch(userActions.onAuthStateChanged(user ? user._user : null))
-    // if (user) {
-    //   store.dispatch(appActions.getDefaultData())
-    //   store.dispatch(serviceActions.startListenServices())
-    //   store.dispatch(userActions.getEmployeeData())
-    // } else store.dispatch(serviceActions.stopListenServices())
+    if (user) {
+      const { _user } = user
+      store.dispatch(userActions.setAuthState(true))
+      store.dispatch(userActions.setCurrentUser(_user))
+    } else {
+      store.dispatch(userActions.setAuthState(false))
+      store.dispatch(userActions.setCurrentUser({}))
+    }
   })
 
   return (

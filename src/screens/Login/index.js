@@ -9,7 +9,7 @@ import styles from './styles'
 
 import { logo } from '../../libs/images'
 
-import { facebookLogin } from '../../redux/user/service'
+import { facebookLogin, googleLogin } from '../../redux/user/service'
 
 const { MAIN_TABS, LOGIN_LIGHTBOX } = routerKeys
 
@@ -26,6 +26,14 @@ function Login() {
         elevation
       />
       <SocialLoginButton
+        iconName="google"
+        text="google"
+        primaryColor={styles.googlePrimaryColor}
+        activeColor={styles.googleActiveColor}
+        onPress={googleLogin}
+        elevation
+      />
+      <SocialLoginButton
         iconName="facebook"
         text="facebook"
         primaryColor={styles.facebookPrimaryColor}
@@ -38,14 +46,6 @@ function Login() {
         text="twitter"
         primaryColor={styles.twitterPrimaryColor}
         activeColor={styles.twitterActiveColor}
-        onPress={Actions[MAIN_TABS]}
-        elevation
-      />
-      <SocialLoginButton
-        iconName="google"
-        text="google"
-        primaryColor={styles.googlePrimaryColor}
-        activeColor={styles.googleActiveColor}
         onPress={Actions[MAIN_TABS]}
         elevation
       />

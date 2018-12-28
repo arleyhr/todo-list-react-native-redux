@@ -13,6 +13,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.facebook.CallbackManager;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
           new FBSDKPackage(mCallbackManager),
           new RNFirebasePackage(),
           new VectorIconsPackage(),
+          new RNGoogleSigninPackage(),
           new RNFirebaseAuthPackage()
       );
     }

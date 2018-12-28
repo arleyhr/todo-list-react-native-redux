@@ -2,22 +2,46 @@
 # platform :ios, '9.0'
 
 target 'ahrtodorn' do
+  rn_path = '../node_modules/react-native'
+
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  pod 'React', path: rn_path, subspecs: [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket'
+  ]
+
+  # React Native third party dependencies podspecs
+  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
   # Pods for ahrtodorn
   platform :ios, '9.0'
   pod 'Firebase/Core', '~> 5.11.0'
+  pod 'Firebase/Auth', '~> 5.11.0'
   pod 'Firebase/Firestore'
-  pod 'Firebase/Auth'
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
 
   target 'ahrtodorn-tvOSTests' do
     inherit! :search_paths
-    # Pods for testing
-    pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
-
-    pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
-
   end
 
   target 'ahrtodornTests' do

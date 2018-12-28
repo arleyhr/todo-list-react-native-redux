@@ -1,6 +1,6 @@
 import firebase from 'react-native-firebase'
 import { AccessToken, LoginManager } from 'react-native-fbsdk'
-
+import { GoogleSignin } from 'react-native-google-signin'
 
 function onAuthStateChanged(cb) {
   return firebase.auth().onAuthStateChanged(cb)
@@ -10,16 +10,13 @@ function signWithEmailAndPassword(email, password) {
   return firebase.auth().signInWithEmailAndPassword(email, password)
 }
 
-function logout() {
-  return firebase.auth().signOut()
+async function logout() {
+  await firebase.auth().signOut()
 }
 
 async function facebookLogin() {
   try {
-    const result = await LoginManager.logInWithReadPermissions([
-      'public_profile',
-      'email',
-    ])
+    const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email'])
 
     if (result.isCancelled) {
       throw new Error('User cancelled request')
@@ -37,4 +34,21 @@ async function facebookLogin() {
   }
 }
 
-export { onAuthStateChanged, signWithEmailAndPassword, logout, facebookLogin }
+async function googleLogin() {
+  try {
+    await GoogleSignin.configure()
+
+    const data = await GoogleSignin.signIn()
+
+    // create a new firebase credential with the token
+    const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
+    // login with credential
+    const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential)
+
+    console.info(JSON.stringify(currentUser.user.toJSON()))
+  } catch (error) {
+    throw error
+  }
+}
+
+export { onAuthStateChanged, signWithEmailAndPassword, logout, facebookLogin, googleLogin }

@@ -15,12 +15,15 @@ import Home from '../screens/home'
 import NewTask from '../screens/new-task'
 import TaskView from '../screens/task-view'
 import LoginWithEmail from '../screens/login-with-email'
+import Profile from '../screens/profile'
 
 import CircleButton from '../components/circle-button'
 import { logo } from '../libs/images'
 import routerKeys from './keys'
 
 import styles from './styles'
+
+import withStore from './store'
 
 const {
   MAIN_TABS,
@@ -36,6 +39,15 @@ const {
 } = routerKeys
 
 class Navigation extends Component {
+  componentDidMount() {
+    const { isAuthenticated } = this.props
+    Actions[isAuthenticated ? HOME_SCREEN : LOGIN_SCREEN].call()
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.isAuthenticated !== this.props.isAuthenticated) {
+      Actions[this.props.isAuthenticated ? HOME_SCREEN : LOGIN_SCREEN].call()
+    }
+  }
   onAddButtonPress = () => {
     Actions[NEW_TASK_LIGHTBOX].call()
   }
@@ -90,7 +102,7 @@ class Navigation extends Component {
                 />
                 <Scene
                   key={PROFILE_SCREEN}
-                  component={Home}
+                  component={Profile}
                   icon={({ tintColor }) => <Icon name="user" size={24} color={tintColor} />}
                 />
               </Tabs>
@@ -108,4 +120,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation
+export default withStore(Navigation)
