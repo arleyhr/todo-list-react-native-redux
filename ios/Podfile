@@ -40,21 +40,12 @@ target 'ahrtodorn' do
   pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
   pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
 
-  target 'ahrtodorn-tvOSTests' do
-    inherit! :search_paths
-  end
-
-  target 'ahrtodornTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
 
-target 'ahrtodorn-tvOS' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for ahrtodorn-tvOS
-
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
 end

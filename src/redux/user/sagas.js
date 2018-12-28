@@ -3,7 +3,8 @@ import { Actions } from 'react-native-router-flux'
 import { reset } from 'redux-form'
 import { Types } from './actions'
 
-import { signWithEmailAndPassword, logout } from './service'
+import { signWithEmailAndPassword, logout, facebookLogin, googleLogin } from './service'
+
 
 import routerKeys from '../../router/keys'
 
@@ -31,6 +32,23 @@ export function* requestLogin(action) {
   }
 }
 
+export function* requestSocialLogin({ social }) {
+  try {
+    switch (social) {
+      case 'facebook':
+        yield call(facebookLogin)
+        break
+      case 'google':
+        yield call(googleLogin)
+        break
+      default:
+        return
+    }
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 export function* signOut() {
   try {
     yield call(logout)
@@ -41,5 +59,6 @@ export function* signOut() {
 
 export default all([
   takeLatest(Types.REQUEST_LOGIN, requestLogin),
+  takeLatest(Types.REQUEST_SOCIAL_LOGIN, requestSocialLogin),
   takeLatest(Types.LOGOUT, signOut),
 ])

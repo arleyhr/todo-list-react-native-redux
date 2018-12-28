@@ -7,13 +7,13 @@ import SocialLoginButton from '../../components/social-login-button'
 import routerKeys from '../../router/keys'
 import styles from './styles'
 
-import { logo } from '../../libs/images'
+import withStore from './store'
 
-import { facebookLogin, googleLogin } from '../../redux/user/service'
+import { logo } from '../../libs/images'
 
 const { MAIN_TABS, LOGIN_LIGHTBOX } = routerKeys
 
-function Login() {
+function Login({ socialLoginWith }) {
   return (
     <SafeAreaView>
       <Image source={logo} style={styles.logo} />
@@ -30,7 +30,7 @@ function Login() {
         text="google"
         primaryColor={styles.googlePrimaryColor}
         activeColor={styles.googleActiveColor}
-        onPress={googleLogin}
+        onPress={() => socialLoginWith('google')}
         elevation
       />
       <SocialLoginButton
@@ -38,7 +38,7 @@ function Login() {
         text="facebook"
         primaryColor={styles.facebookPrimaryColor}
         activeColor={styles.facebookActiveColor}
-        onPress={facebookLogin}
+        onPress={() => socialLoginWith('facebook')}
         elevation
       />
       <SocialLoginButton
@@ -53,4 +53,4 @@ function Login() {
   )
 }
 
-export default Login
+export default withStore(Login)
