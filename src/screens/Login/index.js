@@ -9,6 +9,8 @@ import styles from './styles'
 
 import { logo } from '../../libs/images'
 
+import { facebookLogin } from '../../redux/user/service'
+
 const { MAIN_TABS, LOGIN_LIGHTBOX } = routerKeys
 
 function Login() {
@@ -28,7 +30,7 @@ function Login() {
         text="facebook"
         primaryColor={styles.facebookPrimaryColor}
         activeColor={styles.facebookActiveColor}
-        onPress={Actions[MAIN_TABS]}
+        onPress={facebookLogin}
         elevation
       />
       <SocialLoginButton
