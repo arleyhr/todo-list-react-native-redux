@@ -14,6 +14,15 @@ export default EStyleSheet.create({
     marginVertical: 14,
   }),
   tasksListContainer: {
-    marginBottom: 20,
+    marginBottom: 120,
   },
+  calendar: {
+    height: '70%',
+    maxHeight: 400,
+  },
+  noTodos: () => ({
+    ...EStyleSheet.value('$fonts.ralewaySemiBold'),
+    color: '$colors.black',
+    textAlign: 'center',
+  }),
 })

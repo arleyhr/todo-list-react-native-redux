@@ -20,7 +20,11 @@ function Button({
   textStyles,
 }) {
   return (
-    <TouchableWithoutFeedback onPressIn={handlePressIn} onPressOut={() => handlePressOut(onPress)}>
+    <TouchableWithoutFeedback
+      onPress={onPress}
+      onPressIn={handlePressIn}
+      onPressOut={() => handlePressOut()}
+    >
       <View
         style={[
           active ? styles.buttonActive : styles.button,

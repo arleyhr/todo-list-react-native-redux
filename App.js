@@ -6,6 +6,7 @@ import Navigation from './src/router'
 import createStore from './src/redux/createStore'
 import { onAuthStateChanged } from './src/redux/user/service'
 import userActions from './src/redux/user/actions'
+import todosActions from './src/redux/todo/actions'
 
 import theme from './src/theme'
 
@@ -19,6 +20,7 @@ function App() {
       const { _user } = user
       store.dispatch(userActions.setAuthState(true))
       store.dispatch(userActions.setCurrentUser(_user))
+      store.dispatch(todosActions.getTodos())
     } else {
       store.dispatch(userActions.setAuthState(false))
       store.dispatch(userActions.setCurrentUser({}))

@@ -21,4 +21,8 @@ export default EStyleSheet.create({
       paddingLeft: 6,
     },
   },
+  error: {
+    color: '$colors.chiGong',
+    marginTop: 4,
+  },
 })

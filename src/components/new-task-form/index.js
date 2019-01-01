@@ -1,5 +1,8 @@
 import React from 'react'
-import { View, Text, ScrollView, KeyboardAvoidingView } from 'react-native'
+import { Field, reduxForm } from 'redux-form/immutable'
+import { View, Text, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
+import validate from 'validate.js'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 import InputText from '../input-text'
 import Picker from '../picker'
@@ -8,6 +11,11 @@ import Button from '../button'
 
 import { arrayColors } from '../../theme/colors'
 import styles from './styles'
+
+import formKeys from '../../redux/forms'
+import withState from './state'
+
+const { NEW_TASK } = formKeys
 
 const notificationOptions = [
   {
@@ -23,21 +31,24 @@ const notificationOptions = [
   {
     key: 3,
     label: '1 hour before',
-    value: 30,
-  },
-  {
-    key: 4,
-    label: '1 hour before',
     value: 60,
   },
   {
-    key: 5,
+    key: 4,
     label: '1 day before',
     value: 60 * 24,
   },
 ]
 
-function NewTaskForm() {
+function NewTaskForm(props) {
+  const {
+    handleSubmit,
+    submitting,
+    onSubmit,
+    confirmDate,
+    setPickerVisible,
+    isDatePickerVisible,
+  } = props
   return (
     <ScrollView>
       <KeyboardAvoidingView behavior="padding">
@@ -48,37 +59,85 @@ function NewTaskForm() {
           </View>
           <View>
             <View style={styles.inputContainer}>
-              <InputText label="Topic" placeholder="Write Topic" />
+              <Field component={InputText} name="title" label="Topic" placeholder="Write Topic" />
             </View>
             <View style={styles.inputContainer}>
-              <InputText label="Description" placeholder="Write Description" multiline />
+              <Field
+                component={InputText}
+                name="description"
+                label="Description"
+                placeholder="Write Description"
+                multiline
+              />
             </View>
-            <View style={styles.inputsDate}>
-              <View style={styles.inputDate}>
-                <InputText label="Date" placeholder="Select Date" />
+            <TouchableOpacity onPress={() => setPickerVisible(true)}>
+              <View style={[styles.inputContainer, styles.inputsDate]}>
+                <View style={styles.layer} />
+                <Field
+                  component={InputText}
+                  name="formatDate"
+                  label="Date"
+                  placeholder="Select Date"
+                  disabled
+                />
               </View>
-              <View style={styles.inputDate}>
-                <InputText label="Time" placeholder="Select Time" />
-              </View>
-            </View>
+            </TouchableOpacity>
             <View style={styles.inputContainer}>
-              <Picker
+              <Field
+                component={Picker}
+                name="notification"
                 label="Notification"
                 placeholder="Select Notification"
                 options={notificationOptions}
               />
             </View>
             <View style={styles.inputContainer}>
-              <ColorPicker label="Choose color" colors={arrayColors} />
+              <Field
+                component={ColorPicker}
+                name="color"
+                label="Choose color"
+                colors={arrayColors}
+              />
             </View>
           </View>
+          <DateTimePicker
+            isVisible={isDatePickerVisible}
+            onConfirm={confirmDate}
+            onCancel={() => setPickerVisible(false)}
+            is24Hour
+            minimumDate={new Date()}
+            mode="datetime"
+          />
         </View>
         <View>
-          <Button text="ADD" onPress={() => {}} />
+          <Button disabled={submitting} text="ADD" onPress={handleSubmit(onSubmit)} />
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
   )
 }
 
-export default NewTaskForm
+const constraints = {
+  title: {
+    presence: true,
+  },
+  description: {
+    presence: true,
+  },
+  formatDate: {
+    presence: true,
+  },
+  notification: {
+    presence: true,
+  },
+  color: {
+    presence: true,
+  },
+}
+
+const loginForm = reduxForm({
+  form: NEW_TASK,
+  validate: values => validate(values.toJS(), constraints),
+})(NewTaskForm)
+
+export default withState(loginForm)

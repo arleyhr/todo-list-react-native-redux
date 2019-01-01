@@ -16,9 +16,11 @@
   },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
+    "moment": "^2.23.0",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
     "react-native": "0.57.8",
+    "react-native-awesome-alerts": "^1.2.0",
     "react-native-calendars": "^1.21.0",
     "react-native-extended-stylesheet": "^0.11.1",
     "react-native-fbsdk": "^0.8.0",
@@ -33,7 +35,8 @@
     "redux-form": "^8.1.0",
     "redux-immutablejs": "0.0.8",
     "redux-saga": "^0.16.2",
-    "reduxsauce": "^1.0.1"
+    "reduxsauce": "^1.0.1",
+    "validate.js": "^0.12.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",

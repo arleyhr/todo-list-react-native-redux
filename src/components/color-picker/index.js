@@ -5,9 +5,17 @@ import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import withState from './state'
 import styles from './styles'
 
-function ColorPicker({
-  label, colors, currentColor, showColorBox, colorBoxVisible, selectColor,
-}) {
+function ColorPicker(props) {
+  const {
+    label,
+    colors,
+    currentColor,
+    showColorBox,
+    colorBoxVisible,
+    selectColor,
+    meta: { touched, error },
+  } = props
+
   return (
     <View style={styles.container}>
       <Text style={styles.inputLabel}>{label}</Text>
@@ -16,6 +24,13 @@ function ColorPicker({
           style={[styles.colorButton, { backgroundColor: currentColor || styles.defaultColor }]}
         />
       </TouchableOpacity>
+      {touched &&
+        (error &&
+          error.map((err, index) => (
+            <Text key={index} style={styles.error}>
+              {err}
+            </Text>
+          )))}
       {colorBoxVisible && (
         <ScrollView style={styles.scrollView}>
           <View style={styles.colorBox}>
@@ -48,6 +63,7 @@ ColorPicker.propTypes = {
   showColorBox: PropTypes.func.isRequired,
   colorBoxVisible: PropTypes.bool.isRequired,
   selectColor: PropTypes.func.isRequired,
+  meta: PropTypes.object.isRequired,
 }
 
 export default withState(ColorPicker)

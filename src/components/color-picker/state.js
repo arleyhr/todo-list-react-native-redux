@@ -8,6 +8,7 @@ const funcs = withHandlers({
     props.setColorBoxVisible(true)
   },
   selectColor: props => (color) => {
+    props.input.onChange(color)
     props.setCurrentColor(color)
     props.setColorBoxVisible(false)
   },

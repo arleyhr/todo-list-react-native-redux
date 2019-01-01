@@ -6,9 +6,8 @@ const funcs = withHandlers({
   handlePressIn: props => () => {
     props.setActive(true)
   },
-  handlePressOut: props => (onPress) => {
+  handlePressOut: props => () => {
     props.setActive(false)
-    onPress()
   },
 })
 

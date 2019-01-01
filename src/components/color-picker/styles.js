@@ -56,4 +56,8 @@ export default EStyleSheet.create({
 
     elevation: 4,
   },
+  error: {
+    color: '$colors.chiGong',
+    marginTop: 4,
+  },
 })

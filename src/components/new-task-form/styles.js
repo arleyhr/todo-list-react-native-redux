@@ -26,11 +26,17 @@ export default EStyleSheet.create({
     marginBottom: '$inputsMargin',
   },
   inputsDate: {
-    flexDirection: 'row',
-    marginBottom: '$inputsMargin',
-    justifyContent: 'space-between',
+    position: 'relative',
   },
   inputDate: {
     width: '46%',
+  },
+  layer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 2,
   },
 })

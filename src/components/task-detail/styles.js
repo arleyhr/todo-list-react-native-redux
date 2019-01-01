@@ -95,6 +95,9 @@ export default EStyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 20,
   },
+  actionsCenter: {
+    justifyContent: 'center',
+  },
   buttonText: {
     fontSize: 12,
   },

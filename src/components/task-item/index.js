@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import { getShortDateTime } from '../../libs/moment'
+
 import styles from './styles'
 
 function TaskItem({
@@ -21,7 +23,7 @@ function TaskItem({
           {title}
         </Text>
         <View style={styles.dateContainer}>
-          <Text style={styles.date}>{date}</Text>
+          <Text style={styles.date}>{getShortDateTime(date)}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -31,7 +33,7 @@ function TaskItem({
 TaskItem.propTypes = {
   title: PropTypes.string.isRequired,
   done: PropTypes.bool.isRequired,
-  date: PropTypes.any.isRequired,
+  date: PropTypes.any,
   onPress: PropTypes.func.isRequired,
 }
 

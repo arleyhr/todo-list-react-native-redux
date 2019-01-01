@@ -5,9 +5,18 @@ import { View, Text, TextInput } from 'react-native'
 import withState from './state'
 import styles from './styles'
 
-function InputText({
-  label, placeholder, isFocused, handleFocus, handleBlur, ...props
-}) {
+function InputText(props) {
+  const {
+    label,
+    placeholder,
+    isFocused,
+    handleFocus,
+    handleBlur,
+    disabled,
+    input: { onChange, ...restInput },
+    meta: { touched, error },
+  } = props
+
   return (
     <View style={styles.container}>
       <Text style={styles.inputLabel}>{label}</Text>
@@ -16,8 +25,17 @@ function InputText({
         placeholder={placeholder}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        {...props}
+        onChange={onChange}
+        disabled={disabled}
+        {...restInput}
       />
+      {touched &&
+        (error &&
+          error.map((err, index) => (
+            <Text key={index} style={styles.error}>
+              {err}
+            </Text>
+          )))}
     </View>
   )
 }

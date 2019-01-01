@@ -9,15 +9,26 @@ import routerKeys from '../../router/keys'
 
 const { TASK_DETAIL } = routerKeys
 
-function renderItem({ item }) {
-  return <TaskItem {...item} onPress={Actions[TASK_DETAIL]} />
-}
-
-function TasksList({ tasks }) {
-  return <FlatList data={tasks} renderItem={renderItem} keyExtractor={item => item.id} />
+function TasksList({ tasks, onItemPress }) {
+  return (
+    <FlatList
+      data={tasks}
+      renderItem={({ item }) => (
+        <TaskItem
+          {...item}
+          onPress={() => {
+            onItemPress(item)
+            Actions[TASK_DETAIL].call()
+          }}
+        />
+      )}
+      keyExtractor={item => item.id}
+    />
+  )
 }
 
 TasksList.propTypes = {
+  onItemPress: PropTypes.func.isRequired,
   tasks: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string,

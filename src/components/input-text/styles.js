@@ -3,6 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet'
 export default EStyleSheet.create({
   container: {
     height: 50,
+    marginBottom: 5,
   },
   inputLabel: () => ({
     ...EStyleSheet.value('$fonts.ralewaySemiBold'),
@@ -18,5 +19,9 @@ export default EStyleSheet.create({
   },
   inputFocus: {
     borderBottomColor: '$colors.softBlue',
+  },
+  error: {
+    color: '$colors.chiGong',
+    marginTop: 4,
   },
 })
