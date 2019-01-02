@@ -15,6 +15,7 @@ function TasksList({ tasks, onItemPress }) {
       data={tasks}
       renderItem={({ item }) => (
         <TaskItem
+          key={item.id}
           {...item}
           onPress={() => {
             onItemPress(item)

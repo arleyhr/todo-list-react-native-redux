@@ -1,4 +1,5 @@
 import React from 'react'
+import { Map as map } from 'immutable'
 import { Field, reduxForm } from 'redux-form/immutable'
 import { View, Text, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
 import validate from 'validate.js'
@@ -138,6 +139,10 @@ const constraints = {
 const loginForm = reduxForm({
   form: NEW_TASK,
   validate: values => validate(values.toJS(), constraints),
+  initialValues: map({
+    notification: 10,
+    color: '#5a95ff',
+  }),
 })(NewTaskForm)
 
 export default withState(loginForm)

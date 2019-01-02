@@ -10,11 +10,18 @@ import styles from './styles'
 
 import withStore from './store'
 
-const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' }
-const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' }
-const workout = { key: 'workout', color: 'green' }
-
-function Home({ todos, isAppLoading, setCurrentTodo }) {
+function Home({
+  todos,
+  isAppLoading,
+  setCurrentTodo,
+  groupByDate,
+  todosByDay,
+  todosByDate,
+  todosByMonth,
+  currentMonthTodos,
+  currentDayTodos,
+  selectedDate,
+}) {
   return (
     <SafeAreaView>
       <ScrollView style={styles.scrollContainer}>
@@ -22,25 +29,25 @@ function Home({ todos, isAppLoading, setCurrentTodo }) {
           <SwitchButton
             leftButtonText="Monthly"
             rightButtonText="Daily"
-            onPressLeftButton={() => {}}
-            onPressRightButton={() => {}}
+            onPressLeftButton={currentMonthTodos}
+            onPressRightButton={currentDayTodos}
           />
         </View>
         <Calendar
+          onDayPress={todosByDay}
+          onMonthChange={todosByMonth}
           style={styles.calendar}
-          markedDates={{
-            '2018-12-27': { dots: [vacation, massage, workout] },
-            '2018-12-28': { dots: [massage, workout] },
-          }}
+          markedDates={groupByDate}
           markingType="multi-dot"
         />
-        <Text style={styles.dateLabel}>Todos</Text>
+        <Text style={styles.dateLabel}>Todos - {selectedDate}</Text>
         <View style={styles.tasksListContainer}>
           {todos.length ? (
-            <TasksList tasks={todos} onItemPress={setCurrentTodo} />
+            <TasksList tasks={todosByDate || todos} onItemPress={setCurrentTodo} />
           ) : (
             <Text style={styles.noTodos}>No todos</Text>
           )}
+          {todosByDate && !todosByDate.length && <Text style={styles.noTodos}>No todos</Text>}
         </View>
       </ScrollView>
       <AwesomeAlert
