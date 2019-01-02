@@ -7,6 +7,9 @@
  - [Redux Saga](https://redux-saga.js.org)
  - [React Native Firebase](https://rnfirebase.io/)
 
+![1](https://raw.githubusercontent.com/arleyhr/todo-list-react-native-redux/master/resources/screens.png)
+
+
 Inspiration: https://dribbble.com/shots/5036840-To-Do-List-Freebie
 
 ## Next
@@ -15,5 +18,3 @@ Inspiration: https://dribbble.com/shots/5036840-To-Do-List-Freebie
  - [ ] Twitter authentication
  - [ ] Notifications
  - [ ] Internationalization
-
- 
