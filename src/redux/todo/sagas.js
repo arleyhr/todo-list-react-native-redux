@@ -24,7 +24,10 @@ export function* requestAddTodo({ item }) {
     const createResult = yield call(newTodo, { ...item, done: false, userId: user.uid })
     const result = yield call(getTodo, createResult.id)
 
-    yield put(todoActions.addTodo(result.data()))
+    yield put(todoActions.addTodo({
+      ...result.data(),
+      id: createResult.id,
+    }))
     yield put(reset(NEW_TASK))
     Actions.pop()
   } catch (e) {

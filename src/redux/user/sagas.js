@@ -2,18 +2,22 @@ import { call, takeLatest, put, all } from 'redux-saga/effects'
 import { Actions } from 'react-native-router-flux'
 import { reset } from 'redux-form'
 import { Types } from './actions'
+import appActions from '../app/actions'
+import appParts from '../app/appParts'
 
 import { signWithEmailAndPassword, logout, facebookLogin, googleLogin } from './service'
-
 
 import routerKeys from '../../router/keys'
 
 import formsKeys from '../forms'
 
+const { LOGIN_LOADING } = appParts
+
 const { LOGIN_FORM } = formsKeys
 const { HOME_SCREEN } = routerKeys
 
 export function* requestLogin(action) {
+  yield put(appActions.setPartLoading(LOGIN_LOADING, true))
   try {
     const { email, password } = action
     const { user } = yield call(signWithEmailAndPassword, email, password)
@@ -30,9 +34,11 @@ export function* requestLogin(action) {
   } catch (e) {
     console.log(e)
   }
+  yield put(appActions.setPartLoading(LOGIN_LOADING, false))
 }
 
 export function* requestSocialLogin({ social }) {
+  yield put(appActions.setPartLoading(LOGIN_LOADING, true))
   try {
     switch (social) {
       case 'facebook':
@@ -47,6 +53,7 @@ export function* requestSocialLogin({ social }) {
   } catch (e) {
     console.log(e)
   }
+  yield put(appActions.setPartLoading(LOGIN_LOADING, false))
 }
 
 export function* signOut() {

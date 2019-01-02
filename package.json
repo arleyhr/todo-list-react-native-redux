@@ -1,6 +1,6 @@
 {
   "name": "todo-list-react-native-redux",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -12,7 +12,10 @@
     "flow-stop": "flow stop",
     "flow-status": "flow status",
     "flow-coverage": "flow coverage",
-    "ios": "open ios/ahrtodorn.xcworkspace"
+    "ios": "open ios/ahrtodorn.xcworkspace",
+    "android:prepare": "cd android && ./gradlew assembleRelease",
+    "android:release": "react-native run-android --variant=release",
+    "android:run-release": "yarn android:prepare && yarn android:release"
   },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",

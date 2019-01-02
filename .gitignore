@@ -56,5 +56,9 @@ buck-out/
 *.jsbundle
 
 android/app/google-services.json
+android/app/release
+android/app/build
+android/app/todo-rn.keystore
+android/gradle.properties
 ios/ahrtodorn/GoogleService-Info.plist
 ios/Pods

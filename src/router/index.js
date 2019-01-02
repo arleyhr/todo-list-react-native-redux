@@ -41,11 +41,11 @@ const {
 class Navigation extends Component {
   componentDidMount() {
     const { isAuthenticated } = this.props
-    Actions[isAuthenticated ? HOME_SCREEN : LOGIN_SCREEN].call()
+    Actions[isAuthenticated ? HOME_SCREEN : LOGIN_SCREEN].call({ type: 'reset' })
   }
   componentDidUpdate(prevProps) {
     if (prevProps.isAuthenticated !== this.props.isAuthenticated) {
-      Actions[this.props.isAuthenticated ? HOME_SCREEN : LOGIN_SCREEN].call()
+      Actions[this.props.isAuthenticated ? HOME_SCREEN : LOGIN_SCREEN].call({ type: 'reset' })
     }
   }
   onAddButtonPress = () => {
@@ -56,57 +56,65 @@ class Navigation extends Component {
       <Router sceneStyle={styles.scene}>
         <Lightbox>
           <Modal>
-            {/* MODALS */}
-            <Scene key={LOGIN_SCREEN} title="Login" component={Login} hideNavBar />
-            {/* // MODALS */}
-
-            <Scene key={MAIN_TABS} hideNavBar type={ActionConst.REPLACE}>
-              <Tabs
-                showLabel={false}
-                swipeEnabled
-                inactiveTintColor={styles.inactiveTintColor}
-                activeTintColor={styles.activeTintColor}
-                tabBarStyle={styles.tabBarStyle}
-                navigationBarStyle={styles.navigationBarStyle}
-                navigationBarTitleImage={logo}
-                navigationBarTitleImageStyle={styles.navigationBarTitleImageStyle}
-                headerLayoutPreset="center"
-              >
-                <Scene
-                  key={HOME_SCREEN}
-                  component={Home}
-                  icon={({ tintColor }) => <Icon name="list" size={24} color={tintColor} />}
-                />
-                <Scene
-                  key={SCHEDULE_SCREEN}
-                  component={Home}
-                  icon={({ tintColor }) => <Icon name="clock" size={24} color={tintColor} />}
-                />
-                <Scene
-                  key={ADD_SCREEN}
-                  component={Home}
-                  tabBarOnPress={() => null}
-                  icon={() => (
-                    <CircleButton
-                      elevation
-                      customStyles={styles.addButton}
-                      iconName="plus"
-                      onPress={this.onAddButtonPress}
-                    />
-                  )}
-                />
-                <Scene
-                  key={NOTIFICATIONS_SCREEN}
-                  component={Home}
-                  icon={({ tintColor }) => <Icon name="bell" size={24} color={tintColor} />}
-                />
-                <Scene
-                  key={PROFILE_SCREEN}
-                  component={Profile}
-                  icon={({ tintColor }) => <Icon name="user" size={24} color={tintColor} />}
-                />
-              </Tabs>
+            <Scene key="root" hideNavBar>
+              <Scene key={MAIN_TABS} hideNavBar type={ActionConst.REPLACE}>
+                <Tabs
+                  showLabel={false}
+                  swipeEnabled
+                  inactiveTintColor={styles.inactiveTintColor}
+                  activeTintColor={styles.activeTintColor}
+                  tabBarStyle={styles.tabBarStyle}
+                  navigationBarStyle={styles.navigationBarStyle}
+                  navigationBarTitleImage={logo}
+                  navigationBarTitleImageStyle={styles.navigationBarTitleImageStyle}
+                  headerLayoutPreset="center"
+                >
+                  <Scene
+                    key={HOME_SCREEN}
+                    component={Home}
+                    icon={({ tintColor }) => <Icon name="list" size={24} color={tintColor} />}
+                  />
+                  <Scene
+                    key={SCHEDULE_SCREEN}
+                    component={Home}
+                    icon={({ tintColor }) => <Icon name="clock" size={24} color={tintColor} />}
+                  />
+                  <Scene
+                    key={ADD_SCREEN}
+                    component={Home}
+                    tabBarOnPress={() => null}
+                    icon={() => (
+                      <CircleButton
+                        elevation
+                        customStyles={styles.addButton}
+                        iconName="plus"
+                        onPress={this.onAddButtonPress}
+                      />
+                    )}
+                  />
+                  <Scene
+                    key={NOTIFICATIONS_SCREEN}
+                    component={Home}
+                    icon={({ tintColor }) => <Icon name="bell" size={24} color={tintColor} />}
+                  />
+                  <Scene
+                    key={PROFILE_SCREEN}
+                    component={Profile}
+                    icon={({ tintColor }) => <Icon name="user" size={24} color={tintColor} />}
+                  />
+                </Tabs>
+              </Scene>
             </Scene>
+
+            {/* MODALS */}
+            <Scene
+              key={LOGIN_SCREEN}
+              title="Login"
+              component={Login}
+              type={ActionConst.REPLACE}
+              hideNavBar
+            />
+            {/* // MODALS */}
           </Modal>
 
           {/* LIGHTBOXES */}

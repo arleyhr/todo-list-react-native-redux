@@ -6,7 +6,7 @@ import TaskDetail from '../../components/task-detail'
 
 import withStore from './store'
 
-function TaskView({ currentTodo, setDoneStatus, requestDeleteTodo, isAppLoading }) {
+function TaskView({ currentTodo, setDoneStatus, requestDeleteTodo, isLoading }) {
   return (
     <LightBox>
       <TaskDetail
@@ -15,7 +15,7 @@ function TaskView({ currentTodo, setDoneStatus, requestDeleteTodo, isAppLoading 
         requestDeleteTodo={requestDeleteTodo}
       />
       <AwesomeAlert
-        show={isAppLoading}
+        show={isLoading}
         showProgress
         title="Loading"
         closeOnTouchOutside

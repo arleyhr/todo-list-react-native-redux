@@ -5,6 +5,7 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import com.facebook.react.ReactNativeHost;
@@ -38,7 +39,8 @@ public class MainApplication extends Application implements ReactApplication {
           new RNFirebasePackage(),
           new VectorIconsPackage(),
           new RNGoogleSigninPackage(),
-          new RNFirebaseAuthPackage()
+          new RNFirebaseAuthPackage(),
+          new RNFirebaseFirestorePackage()
       );
     }
 

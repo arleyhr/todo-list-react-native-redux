@@ -13,11 +13,21 @@ export default EStyleSheet.create({
   googleActiveColor: () => EStyleSheet.value('$colors.harleyDavidsonFlower'),
   emailPrimaryColor: () => EStyleSheet.value('$colors.riseNShine'),
   emailActiveColor: () => EStyleSheet.value('$colors.nanohanachaGold'),
+  container: {
+    minHeight: '100%',
+  },
   logo: {
     height: 150,
     width: 150,
     resizeMode: 'cover',
     alignSelf: 'center',
     marginVertical: 40,
+  },
+  content: {
+    position: 'relative',
+    zIndex: 0,
+    minHeight: '100% - 270',
+  },
+  loadingElevator: {
   },
 })
